@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index(): Factory|View|Application
     {
         $locales = config('app.all_locales');
-        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'))->get();
+        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'), 'url')->get();
         $homeHeads = HomeHead::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'background_image', 'url')->get();
         $logo = Logo::query()->latest()->first();
         $allActivities = CompanyActivity::query()->select(LocaleTrait::locale('activity_type'),LocaleTrait::locale('activity_text'), 'icon')->get();
@@ -69,7 +69,7 @@ class HomeController extends Controller
     public function news(): Factory|View|Application
     {
         $locales = config('app.all_locales');
-        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'))->get();
+        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'), 'url')->get();
         $homeHeads = HomeHead::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'background_image', 'url')->get();
         $logo = Logo::query()->latest()->first();
         $news = News::query()->select(LocaleTrait::locale('text'),LocaleTrait::locale('title'), 'images', 'id')->paginate(4);
@@ -80,7 +80,7 @@ class HomeController extends Controller
     public function oneNews($id): Factory|View|Application
     {
         $locales = config('app.all_locales');
-        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'))->get();
+        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'), 'url')->get();
         $homeHeads = HomeHead::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'background_image', 'url')->get();
         $logo = Logo::query()->latest()->first();
         $oneNews = News::query()->select(LocaleTrait::locale('text'),LocaleTrait::locale('title'), 'images', 'id')->where('id', $id)->first();
@@ -90,7 +90,7 @@ class HomeController extends Controller
     public function about(): Factory|View|Application
     {
         $locales = config('app.all_locales');
-        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'))->get();
+        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'), 'url')->get();
         $homeHeads = HomeHead::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'background_image', 'url')->get();
         $logo = Logo::query()->latest()->first();
         $about = AboutCompony::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'certificate')->first();
@@ -100,7 +100,7 @@ class HomeController extends Controller
     public function structure(): Factory|View|Application
     {
         $locales = config('app.all_locales');
-        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'))->get();
+        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'), 'url')->get();
         $homeHeads = HomeHead::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'background_image', 'url')->get();
         $logo = Logo::query()->latest()->first();
         $structure = Structure::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'structure_image')->first();
@@ -110,7 +110,7 @@ class HomeController extends Controller
     public function leadership(): Factory|View|Application
     {
         $locales = config('app.all_locales');
-        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'))->get();
+        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'), 'url')->get();
         $homeHeads = HomeHead::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'background_image', 'url')->get();
         $logo = Logo::query()->latest()->first();
         $leaderships = Leadership::query()->select('phone', 'email', LocaleTrait::locale('position'),LocaleTrait::locale('acceptance_days'),'full_name_latin', 'full_name_cyrillic', 'photo', 'icon')->get();

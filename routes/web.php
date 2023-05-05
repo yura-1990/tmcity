@@ -28,6 +28,11 @@ Route::middleware("localization")->group(function (){
         Route::get('/about', 'about');
         Route::get('/structure', 'structure');
         Route::get('/leadership', 'leadership');
+        Route::get('/dictionary', 'dictionary')->name('dictionary');
+        Route::get('/calculator', 'calculator')->name('calculator');
+        Route::get('/classifier', 'classifier')->name('classifier');
+        Route::get('/standards', 'standards')->name('standards');
+        Route::get('/institute', 'institute')->name('institute');
     });
 });
 

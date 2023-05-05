@@ -100,7 +100,7 @@
                     <nav id="navigation" class="style-1 head-tr ">
                         <ul id="responsive">
                             @foreach($homeMenus as $homeMenu )
-                                <li><a class="text-uppercase" href="#">
+                                <li><a class="text-uppercase" href="{{ route($homeMenu->url) }}">
                                         {{ $homeMenu->menu_name_en ?? $homeMenu->menu_name_uz ?? $homeMenu->menu_name_oz ?? $homeMenu->menu_name_ru}}
                                     </a></li>
                             @endforeach
