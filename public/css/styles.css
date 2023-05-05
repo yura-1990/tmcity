@@ -8002,4 +8002,38 @@ div.partners {
 section.counterup{
     min-height: 400px;
 }
+
+.drop-down{
+    position: relative;
+}
+
+.navbar-link{
+    display: none;
+    position: absolute;
+    width: max-content;
+}
+
+.drop-link:hover{
+    color: black;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.drop-down:hover .navbar-link{
+    display: block;
+}
+
+.navbar-menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+#responsive{
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-list{
+
+}
 /*# sourceMappingURL=styles.css.map */

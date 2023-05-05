@@ -80,9 +80,9 @@
         <div id="header" class="head-tr bottom">
             <div class="container">
                 <!-- Left Side Content -->
-                <div class=" flex-wrap">
+                <div class="navbar-menu">
                     <!-- Logo -->
-                    <div id="logos" class="logo-white">
+                    <div id="" class="">
                         <a href="" class="d-flex align-items-center text-decoration-none">
                             <img src="{{ Voyager::image($logo->logo_image) }}">
                             <p class="logo-title">{{ $logo->logo_title_uz }}</p>
@@ -97,12 +97,48 @@
                         </button>
                     </div>
                     <!-- Main Navigation -->
-                    <nav id="navigation" class="style-1 head-tr ">
+                    <nav id="" class="style-1 head-tr ">
                         <ul id="responsive">
                             @foreach($homeMenus as $homeMenu )
-                                <li><a class="text-uppercase" href="{{ route($homeMenu->url) }}">
-                                        {{ $homeMenu->menu_name_en ?? $homeMenu->menu_name_uz ?? $homeMenu->menu_name_oz ?? $homeMenu->menu_name_ru}}
-                                    </a></li>
+                                <li class="drop-down">
+                                    <a class="text-uppercase navbar-list" href="{{ route($homeMenu->url) }}">
+                                        @switch(app()->currentLocale())
+                                            @case('uz')
+                                                {{$homeMenu->menu_name_uz}}
+                                                @break
+                                            @case('oz')
+                                                {{$homeMenu->menu_name_oz}}
+                                                @break
+                                            @case('ru')
+                                                {{$homeMenu->menu_name_ru}}
+                                                @break
+                                            @case('en')
+                                                {{$homeMenu->menu_name_en}}
+                                                @break
+                                        @endswitch
+                                    </a>
+                                    <ul class="p-0 navbar-link">
+                                        @if($homeMenu->homeMenuItems->count()>0)
+                                            @foreach($homeMenu->homeMenuItems as $item)
+                                                <li class="drop-link">
+                                                    @switch(app()->currentLocale())
+                                                        @case('uz')
+                                                            {{$item->title_uz}}
+                                                            @break
+                                                        @case('oz')
+                                                            {{$item->title_oz}}
+                                                            @break
+                                                        @case('ru')
+                                                            {{$item->title_ru}}
+                                                            @break
+                                                        @case('en')
+                                                            {{$item->title_en}}
+                                                            @break
+                                                    @endswitch
+                                                </li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
                             @endforeach
                         </ul>
                     </nav>

@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::middleware("localization")->group(function (){
     Route::controller(HomeController::class)->group(function (){
         Route::get('/', 'index');
-        Route::get('/news', 'news');
+        Route::get('/news', 'news')->name('news');
         Route::get('/news/{id}', 'oneNews');
         Route::get('language/{locale}', 'locale');
         Route::post('/contact', 'contact');

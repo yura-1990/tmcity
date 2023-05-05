@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index(): Factory|View|Application
     {
         $locales = config('app.all_locales');
-        $homeMenus = HomeMenu::query()->select(LocaleTrait::locale('menu_name'), 'url')->get();
+        $homeMenus = HomeMenu::query()->get();
         $homeHeads = HomeHead::query()->select(LocaleTrait::locale('title'),LocaleTrait::locale('text'), 'background_image', 'url')->get();
         $logo = Logo::query()->latest()->first();
         $allActivities = CompanyActivity::query()->select(LocaleTrait::locale('activity_type'),LocaleTrait::locale('activity_text'), 'icon')->get();
