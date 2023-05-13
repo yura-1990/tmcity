@@ -21,14 +21,12 @@
                     </div>
                 </div>
             @endforeach
-            <section id="hero-area">
-
-                <div class="hero-inner">
-                    <a href="#" class="btn btn-default btn-theme-colored2 btn-xl mt-5"> BATAFSIL <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                </div>
-
-            </section>
         </div>
+        <section id="hero-area">
+            <div class="hero-inner d-flex justify-content-center w-100">
+                <a href="{{ route('open-data') }}" class="btn btn-default btn-theme-colored2 btn-xl mt-5"> BATAFSIL </a>
+            </div>
+        </section>
     </div>
 </section>
 <!-- END SECTION SERVICES -->

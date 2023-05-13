@@ -14,20 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-
-});
-
 Route::middleware("localization")->group(function (){
     Route::controller(HomeController::class)->group(function (){
         Route::get('/', 'index');
         Route::get('/news', 'news')->name('news');
-        Route::get('/news/{id}', 'oneNews');
-        Route::get('language/{locale}', 'locale');
+        Route::get('/news/{id}', 'oneNews')->name('show.news');
+        Route::get('language/{locale}', 'local');
         Route::post('/contact', 'contact');
         Route::get('/about', 'about');
-        Route::get('/structure', 'structure');
-        Route::get('/leadership', 'leadership');
+        Route::get('/learning-center', 'learningCenter')->name('learning-center');
+        Route::get('/laboratory', 'laboratory')->name('laboratory');
+        Route::get('/services', 'services')->name('services');
+        Route::get('/open-data', 'openData')->name('open-data');
+        Route::get('/regulatory-documents', 'regulatoryDocuments')->name('regulatory-documents');
+        Route::get('/structure', 'structure')->name('structure');
+        Route::get('/leadership', 'leadership')->name('leadership');
         Route::get('/dictionary', 'dictionary')->name('dictionary');
         Route::get('/calculator', 'calculator')->name('calculator');
         Route::get('/classifier', 'classifier')->name('classifier');
@@ -35,6 +36,7 @@ Route::middleware("localization")->group(function (){
         Route::get('/institute', 'institute')->name('institute');
     });
 });
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

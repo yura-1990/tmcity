@@ -27,7 +27,7 @@ img {
 #header {
     position: relative;
     z-index: 999;
-    padding: 0px 0 25px 0;
+    padding: 15px 0 1px 0;
 }
 /* Header Widget */
 .header-widget {

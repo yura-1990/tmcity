@@ -6,7 +6,7 @@
                 <div class="col-md-3">
                     <div class="countr">
                        {{-- <i class="fa fa-trophy" aria-hidden="true"></i>--}}
-                        <img src="{{ Voyager::image($institution->icon) }}"  />
+                        {{--<img src="{{ Voyager::image($institution->icon) }}"  />--}}
 
                         <p class="counter"> {{ $institution->number }} </p>
                         <h3>{{ $institution->text_uz ?? $institution->text_oz ?? $institution->text_ru ?? $institution->text_en }}</h3>

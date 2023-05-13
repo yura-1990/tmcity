@@ -40,11 +40,11 @@
                 <div class="left-side" style="width: 100%;">
                     <!-- Logo -->
                     <div class="col-md-auto" style="margin-right:30px;float:left;display:inline-block;margin-top:1px;float:left;">
-                        <a href="" style="color:#ffffff;text-decoration:none;"><img src="{{ asset("/images/mobile.png") }}" alt="" style="width: 20px;color:#ffffff;text-decoration:none;"> +998 71 244-51-84 </a>
+                        <a href="/" style="color:#ffffff;text-decoration:none;"><img src="{{ asset("/images/mobile.png") }}" alt="" style="width: 20px;color:#ffffff;text-decoration:none;"> +998 71 244-51-84 </a>
                     </div>
 
                     <div id="logo" class="col-md-auto">
-                        <a href="" style="color:#ffffff;text-decoration:none;"><img src="{{ asset("/images/email.png") }}" alt="" style="width: 20px;"> standart@standart.uz </a>
+                        <a href="/" style="color:#ffffff;text-decoration:none;"><img src="{{ asset("/images/email.png") }}" alt="" style="width: 20px;"> standart@standart.uz </a>
                     </div>
 
                     <nav id="navigation-n" class="style-0" >
@@ -77,13 +77,13 @@
 
     <header id="header-container" class="header">
         <!-- Header -->
-        <div id="header" class="head-tr bottom">
+        <div id="" class="head-tr bottom">
             <div class="container">
                 <!-- Left Side Content -->
-                <div class="navbar-menu">
+                <div class="navbar-menu d-flex align-items-center">
                     <!-- Logo -->
                     <div id="" class="">
-                        <a href="" class="d-flex align-items-center text-decoration-none">
+                        <a href="/" class="d-flex align-items-center text-decoration-none">
                             <img src="{{ Voyager::image($logo->logo_image) }}">
                             <p class="logo-title">{{ $logo->logo_title_uz }}</p>
                         </a>
@@ -97,11 +97,11 @@
                         </button>
                     </div>
                     <!-- Main Navigation -->
-                    <nav id="" class="style-1 head-tr ">
+                    <nav id="" class="style-1 head-tr">
                         <ul id="responsive">
                             @foreach($homeMenus as $homeMenu )
-                                <li class="drop-down">
-                                    <a class="text-uppercase navbar-list" href="{{ route($homeMenu->url) }}">
+                                <li class="drop-down d-flex align-items-center">
+                                    <a class="text-uppercase navbar-list font-weight-bold" href="{{ route($homeMenu->url) }}">
                                         @switch(app()->currentLocale())
                                             @case('uz')
                                                 {{$homeMenu->menu_name_uz}}
@@ -121,28 +121,32 @@
                                         @if($homeMenu->homeMenuItems->count()>0)
                                             @foreach($homeMenu->homeMenuItems as $item)
                                                 <li class="drop-link">
-                                                    @switch(app()->currentLocale())
-                                                        @case('uz')
-                                                            {{$item->title_uz}}
-                                                            @break
-                                                        @case('oz')
-                                                            {{$item->title_oz}}
-                                                            @break
-                                                        @case('ru')
-                                                            {{$item->title_ru}}
-                                                            @break
-                                                        @case('en')
-                                                            {{$item->title_en}}
-                                                            @break
-                                                    @endswitch
+                                                    <a href="{{ route($item->url) }}" class="drop-link">
+                                                        @switch(app()->currentLocale())
+                                                            @case('uz')
+                                                                {{$item->title_uz}}
+                                                                @break
+                                                            @case('oz')
+                                                                {{$item->title_oz}}
+                                                                @break
+                                                            @case('ru')
+                                                                {{$item->title_ru}}
+                                                                @break
+                                                            @case('en')
+                                                                {{$item->title_en}}
+                                                                @break
+                                                        @endswitch
+                                                    </a>
+
                                                 </li>
                                             @endforeach
                                         @endif
                                     </ul>
+                                </li>
                             @endforeach
                         </ul>
                     </nav>
-                    <div class="clearfix"></div>
+                    {{--<div class="clearfix"></div>--}}
                     <!-- Main Navigation / End -->
                 </div>
                 <!-- Left Side Content / End -->
@@ -151,7 +155,7 @@
         </div>
         <!-- Header / End -->
     </header>
-    <div class="clearfix"></div>
+    {{--<div class="clearfix"></div>--}}
 
     @include('home.header')
 

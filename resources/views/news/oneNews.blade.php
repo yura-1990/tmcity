@@ -10,7 +10,7 @@
                             {{ $oneNews->title_uz ?? $oneNews->title_oz ?? $oneNews->title_ru ?? $oneNews->title_en }}
                         </h2>
 
-                        <p style="font-weight: 700;"> 20.12.2023 </p>
+                        <p style="font-weight: 700;"> {{ $oneNews->created_at }} </p>
                         <hr>
                     </div>
                     <div class="pftext">
